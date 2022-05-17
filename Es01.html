@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>JSES1</title>
+  </head>
+  <body id="body1">
+    <div id="happy">
+      <h1 id="h1happy" style="color: chartreuse">JSES1</h1>
+      <h2 id="text2">first excercise of Vanilla JS training</h2>
+    </div>
+    <!------------------------------------>
+    <div id="angry">
+      <h1 id="h1angry">TI AVEVO DETTO NON CLICCARE</h1>
+    </div>
+    <!------------------------------------>
+    <button id="btn1">NON CLICCARE!</button>
+    <script>
+      var x;
+      console.log("x after init:", x);
+      x = 3;
+      console.log("x = 3:", x);
+      x = false;
+      console.log("x = false:", x);
+
+      var render = function (color, statusHappy, statusAngry) {
+        document
+          .getElementById("body1")
+          .setAttribute("style", "background-color:" + color + "");
+        document
+          .getElementById("happy")
+          .setAttribute("style", "display: " + statusHappy + "");
+        document
+          .getElementById("angry")
+          .setAttribute("style", "display: " + statusAngry + "");
+      };
+      render("white", "block", "none");
+
+      document.getElementById("btn1").addEventListener("click", function () {
+        console.log("click");
+        x = !x;
+        if (!x) {
+          render("white", "block", "none");
+        } else {
+          render("red", "none", "block");
+        }
+      });
+    </script>
+  </body>
+</html>
